@@ -1,4 +1,4 @@
-package com.KK.CrudSpringBootDemo.Entity;
+package com.KK.CrudSpringBootDemo.entity;
 
 import jakarta.persistence.*;
 
