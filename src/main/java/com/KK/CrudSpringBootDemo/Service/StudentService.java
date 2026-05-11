@@ -24,20 +24,23 @@ public class StudentService {
     }
     
     public Student fetchById(int id){
-        return repo.findById(id).orElse(null);
+        return repo.findById(id).orElseThrow(() -> new EntityNotFoundException("Student not found"));
     }
 
     public String remove(int id){
-        repo.deleteById(id);
-        return "Entry Deleted";
+        if(repo.existsById(id)){
+            repo.deleteById(id);
+            return "Entry Deleted";
+        }
+        else {
+            return "Delete faild: Student not found";
+        }
     }
 
     public Student update(int id,Student s){
         Student existing = repo.findById(id).orElseThrow(() -> new EntityNotFoundException("Student with id : " + id + " not found"));
-        if(existing != null){
             existing.setName(s.getName());
             existing.setDept(s.getDept());
-        }
         return repo.save(existing);
     }
 }
