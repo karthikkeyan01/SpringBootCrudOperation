@@ -16,18 +16,18 @@ public class StudentController {
         studentService = service;
     }
 
-    @PostMapping("/add")
-    public Student add(@RequestBody Student s) {
+    @PostMapping
+    public Student create(@RequestBody Student s) {
         return studentService.save(s);
     }
 
-    @GetMapping("/get-all")
-    public List<Student> getAll() {
+    @GetMapping
+    public List<Student> getAllStudents() {
         return studentService.getAll();
     }
 
-    @GetMapping("/get/{id}")
-    public Student get(@PathVariable int id) {
+    @GetMapping("/{id}")
+    public Student findById(@PathVariable int id) {
         return studentService.fetchById(id);
     }
 

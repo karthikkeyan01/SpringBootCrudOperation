@@ -32,7 +32,7 @@ public class StudentService {
             return "Entry Deleted";
         }
         else {
-            return "Delete faild: Student not found";
+            return "Delete failed: Student not found";
         }
     }
 
